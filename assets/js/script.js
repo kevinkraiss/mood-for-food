@@ -1,12 +1,12 @@
 console.log("hello world")
 
-<<<<<<< HEAD
-var dropdown = document.querySelector(".dropdown");
-dropdown.addEventListener("click", function (event) {
-  event.stopPropagation();
-  dropdown.classList.toggle("is-active");
-});
-=======
+
+// var dropdown = document.querySelector(".dropdown");
+// dropdown.addEventListener("click", function (event) {
+//   event.stopPropagation();
+//   dropdown.classList.toggle("is-active");
+// });
+
 var userBirthdayForm = document.querySelector('form')
 var userBirthdayInput = document.getElementById('userBirthday')
 
@@ -17,14 +17,33 @@ function handleBirthday(event) {
     var birthday = userBirthdayInput.value
     console.log(birthday)
 
-    var reformatDate = moment(birthday, "MM-DD-YY").format("dddd, MMMM Do YYYY")
+    var reformatDate = moment(birthday, "YYYY-MM-DD").format("dddd, MMMM Do YYYY")
 
 
     console.log(reformatDate)
 
 }
-userBirthdayForm.addEventListener('submit', handleBirthday)
+
+function getHscope() {
+    var requestUrl = 'https://aztro.sameerkumar.website/?sign=aries&day=today'
+
+    fetch(requestUrl, {
+        method: 'POST'
+    })
+        .then(function(response) {
+            return response.json()
+        })
+        .then(function(data) {
+            console.log(data)
+        })
+        
+}
+
+getHscope()
+
+
+userBirthdayForm.addEventListener('submit', handleBirthday) 
 
 
 
->>>>>>> main
+
