@@ -19,11 +19,12 @@ function handleBirthday(event) {
 
 // gets horroscope info from aztro API
 function getHscope() {
-    var requestUrl = 'https://aztro.sameerkumar.website/?sign=aries&day=today'
-
-    fetch(requestUrl)
+    var requestUrl = 'https://aztro.sameerkumar.website/?sign=libra&day=today'
+    fetch(requestUrl, {
+        method: 'POST'
+    })
         .then(function (response) {
-            return response
+            return response.json()
             console.log(response)
         })
         .then(function(data) {
