@@ -3,6 +3,8 @@ console.log("hello world")
 var userBirthdayForm = document.querySelector('form')
 var userBirthdayInput = document.getElementById('userBirthday')
 
+var userSign = 'scorpio'
+
 // handles user birthday input
 function handleBirthday(event) {
     event.preventDefault()
@@ -19,13 +21,10 @@ function handleBirthday(event) {
 
 // gets horroscope info from aztro API
 function getHscope() {
-    var requestUrl = 'https://aztro.sameerkumar.website/?sign=libra&day=today'
-    fetch(requestUrl, {
-        method: 'POST'
-    })
+    var requestUrl = 'https://aztro.sameerkumar.website/?sign=' + userSign + '&day=today'
+    fetch(requestUrl, {method: 'POST'} )
         .then(function (response) {
             return response.json()
-            console.log(response)
         })
         .then(function(data) {
             console.log(data)
