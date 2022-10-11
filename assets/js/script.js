@@ -7,6 +7,7 @@ var userSign = 'scorpio'
 var birthday
 var reformatDate = ''
 var reformatYear = ''
+var hScopeObj
 
 // signs
 
@@ -76,7 +77,7 @@ var zodaicSigns = [
     begDate: '-01-20',
     endDate: '-02-18'
     },
-    
+
     {
     sign:'pisces',
     begDate: '-02-19',
@@ -104,6 +105,10 @@ function handleBirthday(event) {
 
 function convertHscope() {
 //    console.log(reformatDate)
+for (var i = 0; i < zodaicSigns.length; i++) {
+    
+}
+
 
 var libra = moment(reformatYear + '-' + reformatDate).isBetween(reformatYear + '-09-23', reformatYear + '-10-22', 'day')
 
@@ -121,13 +126,17 @@ function getHscope() {
             return response.json()
         })
         .then(function(data) {
-            console.log(data)
+            hScopeObj = data
+            console.log(hScopeObj)
             
         })
     
         
     }
-getHscope()
+// getHscope()
+
+
+// event listeners
 
 userBirthdayForm.addEventListener('submit', handleBirthday)
 
