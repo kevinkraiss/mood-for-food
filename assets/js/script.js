@@ -2,7 +2,7 @@ var userBirthdayForm = document.querySelector('form')
 var userBirthdayInput = document.getElementById('userBirthday')
 var hScopeEl = document.getElementById('hScopeContainer')
 
-var userSign = 'scorpio'
+var userSign = 'capricorn'
 var birthday
 var reformatDate = ''
 var reformatYear = ''
