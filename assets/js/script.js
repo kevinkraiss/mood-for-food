@@ -1,11 +1,14 @@
 var userBirthdayForm = document.querySelector('form')
 var userBirthdayInput = document.getElementById('userBirthday')
+var hScopeEl = document.getElementById('hScopeContainer')
 
 var userSign = 'scorpio'
 var birthday
 var reformatDate = ''
 var reformatYear = ''
 var hScopeObj
+var userMood
+var userHscope = ''
 
 // signs
 
@@ -83,14 +86,17 @@ var zodaicSigns = [
     }
 ]
 
+// renders horoscope text to element
 
+function renderHscope() {
+    hScopeEl.textContent = userHscope
+}
 
 // handles user birthday input
 function handleBirthday(event) {
     event.preventDefault()
 
     var birthday = userBirthdayInput.value
-    console.log(birthday)
 
     reformatDate = moment(birthday, "YYYY-MM-DD").format("MM-DD")
 
@@ -104,15 +110,10 @@ function handleBirthday(event) {
 function convertHscope() {
 //    console.log(reformatDate)
 for (var i = 0; i < zodaicSigns.length; i++) {
-    
+    if (moment(reformatYear + '-' + reformatDate).isBetween(reformatYear + zodaicSigns[i].begDate, reformatYear + zodaicSigns[i].endDate, 'day') === true ) {
+        userSign = zodaicSigns[i].sign
+    }
 }
-
-
-var libra = moment(reformatYear + '-' + reformatDate).isBetween(reformatYear + '-09-23', reformatYear + '-10-22', 'day')
-
-    if (libra === true ) {
-    userSign = 'libra'}
-    
     getHscope()
 }
 
@@ -125,14 +126,13 @@ function getHscope() {
         })
         .then(function(data) {
             hScopeObj = data
-            console.log(hScopeObj)
-            
+//            console.log(hScopeObj)
+            userMood = hScopeObj.mood
+            userHscope = hScopeObj.description
+//            console.log(userMood, userHscope)          
+        renderHscope()
         })
-    
-        
     }
-// getHscope()
-
 
 // event listeners
 
