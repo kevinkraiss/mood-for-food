@@ -1,8 +1,9 @@
 var userBirthdayForm = document.querySelector('form')
 var userBirthdayInput = document.getElementById('userBirthday')
 var hScopeEl = document.getElementById('hScopeContainer')
+var userMoodHeaderEl = document.getElementById('userMoodHeader')
 
-var userSign = 'capricorn'
+var userSign = ''
 var birthday
 var reformatDate = ''
 var reformatYear = ''
@@ -70,6 +71,12 @@ var zodaicSigns = [
     {
     sign:'capricorn',
     begDate: '-12-22',
+    endDate: '-12-31'
+    },
+
+    {
+    sign:'capricorn',
+    begDate: '-01-01',
     endDate: '-01-19'
     },
 
@@ -90,6 +97,7 @@ var zodaicSigns = [
 
 function renderHscope() {
     hScopeEl.textContent = userHscope
+    userMoodHeaderEl.textContent = userMood
 }
 
 // handles user birthday input
@@ -126,10 +134,8 @@ function getHscope() {
         })
         .then(function(data) {
             hScopeObj = data
-//            console.log(hScopeObj)
             userMood = hScopeObj.mood
-            userHscope = hScopeObj.description
-//            console.log(userMood, userHscope)          
+            userHscope = hScopeObj.description         
         renderHscope()
         })
     }
