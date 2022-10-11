@@ -1,8 +1,8 @@
-var dropdown = document.querySelector(".dropdown");
-dropdown.addEventListener("click", function (event) {
-  event.stopPropagation();
-  dropdown.classList.toggle("is-active");
-});
+// var dropdown = document.querySelector(".dropdown");
+// dropdown.addEventListener("click", function (event) {
+//   event.stopPropagation();
+//   dropdown.classList.toggle("is-active");
+// });
 
 
 var userBirthdayForm = document.querySelector('form')
