@@ -1,5 +1,3 @@
-console.log("hello world")
-
 var userBirthdayForm = document.querySelector('form')
 var userBirthdayInput = document.getElementById('userBirthday')
 
@@ -139,6 +137,3 @@ function getHscope() {
 // event listeners
 
 userBirthdayForm.addEventListener('submit', handleBirthday)
-
-
-
