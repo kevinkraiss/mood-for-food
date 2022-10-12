@@ -12,7 +12,7 @@
 ================================
 # Horoscope API
 
-*[aztro](https://aztro.readthedocs.io/en/latest/)
+* [aztro](https://aztro.readthedocs.io/en/latest/)
 
 ================================
 # CSS Framework
