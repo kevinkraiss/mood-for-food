@@ -107,3 +107,28 @@
 #darkHori {
     padding-top: 1rem;
 }
+
+h2 {
+    text-align: center;
+ }
+ 
+ h3 {
+    text-align: center;
+ }
+ 
+ @media only screen and (max-width: 768px) {
+    .ordered-mobile {
+       display: flex;
+       flex-flow: column;
+    }
+    .ordered-mobile .zodiacSign {
+       order: 1;
+    }
+    .ordered-mobile .foodResults {
+       order: 2;
+    }
+    .ordered-mobile .horoscope {
+       order: 3;
+    }
+ }
+ 
