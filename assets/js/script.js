@@ -20,7 +20,7 @@ var reformatDate = ''
 var reformatYear = ''
 
 var hScopeObj
-var categoriesObj
+var categoriesObj = []
 
 
 // signs
@@ -186,7 +186,7 @@ function handleCategory() {
     .then(function(data){
         categoriesObj = data
         userMealCat = categoriesObj.categories[0].strCategory
-        // console.log(categoriesObj)
+         console.log(categoriesObj)
         // currently set to beef
         // TODO assign based on hscope data or randomly or based on hScopeObj.lucky_number
     })
@@ -200,6 +200,7 @@ console.log(categoriesObj)
 // assign category based on lucky number
 function assignCategory() {
     userLuckyNumber = hScopeObj.lucky_number
+    console.log(categoriesObj)
     var categoryIndex = (Math.floor(userLuckyNumber / 7))
 //   console.log(categoriesObj.categories[categoryIndex])
     
