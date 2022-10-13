@@ -201,7 +201,7 @@ console.log(categoriesObj)
 function assignCategory() {
     userLuckyNumber = hScopeObj.lucky_number
     var categoryIndex = (Math.floor(userLuckyNumber / 7))
-   console.log(categoriesObj.categories[categoryIndex])
+//   console.log(categoriesObj.categories[categoryIndex])
     
  //   console.log(userLuckyNumber)
 }
