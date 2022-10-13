@@ -2,6 +2,7 @@ var userBirthdayForm = document.querySelector('form')
 var userBirthdayInput = document.getElementById('userBirthday')
 var hScopeEl = document.getElementById('hScopeContainer')
 var userMoodHeaderEl = document.getElementById('userMoodHeader')
+var zodiacSignEl = document.getElementById('zodiacSymbol')
 
 var userSign = ''
 var birthday
@@ -10,6 +11,7 @@ var reformatYear = ''
 var hScopeObj
 var userMood
 var userHscope = ''
+
 
 // signs
 
@@ -96,8 +98,10 @@ var zodaicSigns = [
 // renders horoscope text to element
 
 function renderHscope() {
+   
     hScopeEl.textContent = userHscope
     userMoodHeaderEl.textContent = userMood
+  
 }
 
 // handles user birthday input
