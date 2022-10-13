@@ -3,6 +3,8 @@ var userBirthdayInput = document.getElementById('userBirthday')
 var hScopeEl = document.getElementById('hScopeContainer')
 var userMoodHeaderEl = document.getElementById('userMoodHeader')
 var zodiacSignEl = document.getElementById('zodiacSymbol')
+var recipeNameEl = document.getElementById('recipeName')
+var recipeInsEl = document.getElementById('recipeIns')
 
 var userSign = ''
 var userMood
@@ -10,11 +12,15 @@ var userHscope = ''
 var userLuckyNumber
 
 var userMealCat
+var userMeal
+var userRecipeIns
+
 var birthday
 var reformatDate = ''
 var reformatYear = ''
 
 var hScopeObj
+var categoriesObj
 
 
 // signs
@@ -105,6 +111,8 @@ function renderHscope() {
    
     hScopeEl.textContent = userHscope
     userMoodHeaderEl.textContent = userMood
+    recipeNameEl.textContent = userMeal
+    recipeInsEl.textContent = userRecipeIns
 
     handleCategory()
 }
@@ -130,7 +138,7 @@ for (var i = 0; i < zodaicSigns.length; i++) {
     if (moment(reformatYear + '-' + reformatDate).isBetween(reformatYear + zodaicSigns[i].begDate, reformatYear + zodaicSigns[i].endDate, 'day') === true ) {
         userSign = zodaicSigns[i].sign
     }
-}
+}     
     getHscope()
 }
 
@@ -138,22 +146,22 @@ for (var i = 0; i < zodaicSigns.length; i++) {
 function getHscope() {
     var requestUrl = 'https://aztro.sameerkumar.website/?sign=' + userSign + '&day=today'
     fetch(requestUrl, {method: 'POST'} )
-        .then(function (response) {
-            return response.json()
-        })
-        .then(function(data) {
-            hScopeObj = data
-            userMood = hScopeObj.mood
-            userHscope = hScopeObj.description
-            console.log(hScopeObj)         
-        renderHscope()
+    .then(function (response) {
+        return response.json()
+    })
+    .then(function(data) {
+        hScopeObj = data
+        userMood = hScopeObj.mood
+        userHscope = hScopeObj.description
+ //       console.log(hScopeObj)  
+        getRecipe()          
         })
     }
     
 
 
 
-// get recipe by id
+// get recipe details by id
 function getRecipe() {
     var requestMealUrl = 'http://www.themealdb.com/api/json/v1/1/lookup.php?i=52772'
     fetch(requestMealUrl)
@@ -162,7 +170,12 @@ function getRecipe() {
         })
         .then(function(data) {
             mealDbObj = data
-            console.log(mealDbObj)
+ //           console.log(mealDbObj)
+            userMeal = mealDbObj.meals[0].strMeal
+            userRecipeIns = mealDbObj.meals[0].strInstructions
+ //           console.log(userMeal)
+        renderHscope()
+
         })
 }
 
@@ -176,7 +189,7 @@ function handleCategory() {
     .then(function(data){
         categoriesObj = data
         userMealCat = categoriesObj.categories[0].strCategory
-        console.log(categoriesObj)
+        // console.log(categoriesObj)
         // currently set to beef
         // TODO assign based on hscope data or randomly or based on hScopeObj.lucky_number
     })
@@ -184,13 +197,16 @@ function handleCategory() {
     
     // allow user to select recipe from a list
     assignCategory()
+console.log(categoriesObj)
 }
 
 // assign category based on lucky number
 function assignCategory() {
     userLuckyNumber = hScopeObj.lucky_number
-    if ((Math.floor(userLuckyNumber / 7)))
-    console.log(userLuckyNumber)
+    var categoryIndex = (Math.floor(userLuckyNumber / 7))
+//   console.log(categoriesObj.categories[categoryIndex])
+    
+ //   console.log(userLuckyNumber)
 }
 
 // get meal id number
