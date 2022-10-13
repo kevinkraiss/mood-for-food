@@ -4,12 +4,16 @@ var hScopeEl = document.getElementById('hScopeContainer')
 var userMoodHeaderEl = document.getElementById('userMoodHeader')
 
 var userSign = ''
+var userMood
+var userHscope = ''
+var userLuckyNumber
+
+var userMealCat
 var birthday
 var reformatDate = ''
 var reformatYear = ''
+
 var hScopeObj
-var userMood
-var userHscope = ''
 
 // signs
 
@@ -98,6 +102,8 @@ var zodaicSigns = [
 function renderHscope() {
     hScopeEl.textContent = userHscope
     userMoodHeaderEl.textContent = userMood
+
+    handleCategory()
 }
 
 // handles user birthday input
@@ -135,10 +141,54 @@ function getHscope() {
         .then(function(data) {
             hScopeObj = data
             userMood = hScopeObj.mood
-            userHscope = hScopeObj.description         
+            userHscope = hScopeObj.description
+            console.log(hScopeObj)         
         renderHscope()
         })
     }
+
+// get recipe by id
+function getRecipe() {
+    var requestMealUrl = 'http://www.themealdb.com/api/json/v1/1/lookup.php?i=52772'
+    fetch(requestMealUrl)
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function(data) {
+            mealDbObj = data
+            console.log(mealDbObj)
+        })
+}
+
+// list all categories
+function handleCategory() {
+    var requestCategoryUrl = 'http://www.themealdb.com/api/json/v1/1/categories.php'
+    fetch(requestCategoryUrl)
+    .then(function (response) {
+        return response.json()
+    })
+    .then(function(data){
+        categoriesObj = data
+        userMealCat = categoriesObj.categories[0].strCategory
+        console.log(categoriesObj)
+        // currently set to beef
+        // TODO assign based on hscope data or randomly or based on hScopeObj.lucky_number
+    })
+    // get a recipe category based on mood
+    
+    // allow user to select recipe from a list
+    assignCategory()
+}
+
+// assign category based on lucky number
+function assignCategory() {
+    userLuckyNumber = hScopeObj.lucky_number
+    if ((Math.floor(userLuckyNumber / 7)))
+    console.log(userLuckyNumber)
+}
+
+// get meal id number
+// diplay full meal details by id 
 
 // event listeners
 
