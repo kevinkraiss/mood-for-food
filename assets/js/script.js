@@ -117,12 +117,6 @@ function handleBirthday(event) {
 
     var birthday = userBirthdayInput.value
 
-
-    var reformatDate = moment(birthday, "YYYY-MM-DD").format("dddd, MMMM Do YYYY")
-
-
-    console.log(reformatDate)
-
     reformatDate = moment(birthday, "YYYY-MM-DD").format("MM-DD")
 
     reformatYear = moment(birthday, "YYYY-MM-DD").format('YYYY')
@@ -140,12 +134,12 @@ for (var i = 0; i < zodaicSigns.length; i++) {
     }
 }
 
-var libra = moment(reformatYear + '-' + reformatDate).isBetween(reformatYear + '-09-23', reformatYear + '-10-22', 'day')
+// var libra = moment(reformatYear + '-' + reformatDate).isBetween(reformatYear + '-09-23', reformatYear + '-10-22', 'day')
 
-    if (libra === true ) {
-    userSign = 'libra'}
-    getHscope()
-}
+//     if (libra === true ) {
+//     userSign = 'libra'}
+//     getHscope()
+// }
 
 // gets horroscope info from aztro API
 function getHscope() {
@@ -161,7 +155,7 @@ function getHscope() {
         renderHscope()
         })
     }
-
+}
 // event listeners
 
 userBirthdayForm.addEventListener('submit', handleBirthday)
