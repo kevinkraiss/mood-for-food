@@ -158,18 +158,10 @@ function getHscope() {
         handleCategory()        
         })
     }
-    
-
-
 
 // get recipe details by id
-<<<<<<< HEAD
-function getRecipe() {
-    var requestMealUrl = 'http://www.themealdb.com/api/json/v1/1/lookup.php?i=52772'
-=======
 function getRecipe(selectedRecipe) {
     var requestMealUrl = 'http://www.themealdb.com/api/json/v1/1/lookup.php?i=' + selectedRecipe
->>>>>>> e10cf5214ac109733e5683f88743cfbfc7b23495
     fetch(requestMealUrl, {method: 'POST'})
         .then(function (response) {
             return response.json()
@@ -186,45 +178,23 @@ function getRecipe(selectedRecipe) {
 // list all categories
 function handleCategory() {
     var requestCategoryUrl = 'http://www.themealdb.com/api/json/v1/1/categories.php'
-    fetch(requestCategoryUrl)
+    fetch(requestCategoryUrl, {method: 'POST'})
     .then(function (response) {
         return response.json()
     })
     .then(function(data){
         categoriesObj = data
-<<<<<<< HEAD
-        userMealCat = categoriesObj.categories[0].strCategory
-        // console.log(categoriesObj)
-        // currently set to beef
-        // TODO assign based on hscope data or randomly or based on hScopeObj.lucky_number
         assignCategory(categoriesObj)
     })
-    // get a recipe category based on mood
-    
-    // allow user to select recipe from a list
-
-=======
-        assignCategory(categoriesObj)
-    })
->>>>>>> e10cf5214ac109733e5683f88743cfbfc7b23495
 }
 
 // assign category based on lucky number
 function assignCategory(categoriesObj) {
     userLuckyNumber = hScopeObj.lucky_number
-<<<<<<< HEAD
-    var categoryIndex = (Math.floor(userLuckyNumber / 7))
-    console.log(categoriesObj)
-    console.log(categoriesObj.categories[categoryIndex])
-//   console.log(categoriesObj.categories[categoryIndex])
-    
- //   console.log(userLuckyNumber)
-=======
     var categoryIndex = (Math.floor(userLuckyNumber / 7.69))
     var userCategory = categoriesObj.categories[categoryIndex].strCategory
  pickRecipe(userCategory)
 
->>>>>>> e10cf5214ac109733e5683f88743cfbfc7b23495
 }
 
 // pick recipe from category 
@@ -243,6 +213,5 @@ function pickRecipe(userCategory) {
 }
 
 // event listeners
-
 
 userBirthdayForm.addEventListener('submit', handleBirthday)
