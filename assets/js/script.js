@@ -14,6 +14,7 @@ var userLuckyNumber
 var userMealCat
 var userMeal
 var userRecipeIns
+var userCategory
 
 var birthday
 var reformatDate = ''
@@ -21,6 +22,7 @@ var reformatYear = ''
 
 var hScopeObj
 var categoriesObj
+var selectedRecipe
 
 
 // signs
@@ -114,7 +116,7 @@ function renderHscope() {
     recipeNameEl.textContent = userMeal
     recipeInsEl.textContent = userRecipeIns
 
-    handleCategory()
+    
 }
 
 // handles user birthday input
@@ -128,12 +130,12 @@ function handleBirthday(event) {
     reformatYear = moment(birthday, "YYYY-MM-DD").format('YYYY')
     
     convertHscope()
+    
 }
 
 // converts user birthdate into astrological sign
 
 function convertHscope() {
-//    console.log(reformatDate)
 for (var i = 0; i < zodaicSigns.length; i++) {
     if (moment(reformatYear + '-' + reformatDate).isBetween(reformatYear + zodaicSigns[i].begDate, reformatYear + zodaicSigns[i].endDate, 'day') === true ) {
         userSign = zodaicSigns[i].sign
@@ -152,25 +154,22 @@ function getHscope() {
     .then(function(data) {
         hScopeObj = data
         userMood = hScopeObj.mood
-        userHscope = hScopeObj.description
- //       console.log(hScopeObj)  
-        getRecipe()          
+        userHscope = hScopeObj.description 
+        handleCategory()        
         })
     }
 
 // get recipe details by id
-function getRecipe() {
-    var requestMealUrl = 'http://www.themealdb.com/api/json/v1/1/lookup.php?i=52772'
-    fetch(requestMealUrl)
+function getRecipe(selectedRecipe) {
+    var requestMealUrl = 'http://www.themealdb.com/api/json/v1/1/lookup.php?i=' + selectedRecipe
+    fetch(requestMealUrl, {method: 'POST'})
         .then(function (response) {
             return response.json()
         })
         .then(function(data) {
             mealDbObj = data
- //           console.log(mealDbObj)
             userMeal = mealDbObj.meals[0].strMeal
-            userRecipeIns = mealDbObj.meals[0].strInstructions
- //           console.log(userMeal)
+            userRecipeIns = mealDbObj.meals[0].strInstructions    
         renderHscope()
 
         })
@@ -185,29 +184,33 @@ function handleCategory() {
     })
     .then(function(data){
         categoriesObj = data
-        userMealCat = categoriesObj.categories[0].strCategory
-        // console.log(categoriesObj)
-        // currently set to beef
-        // TODO assign based on hscope data or randomly or based on hScopeObj.lucky_number
+        assignCategory(categoriesObj)
     })
-    // get a recipe category based on mood
-    
-    // allow user to select recipe from a list
-    assignCategory()
-console.log(categoriesObj)
 }
 
 // assign category based on lucky number
-function assignCategory() {
+function assignCategory(categoriesObj) {
     userLuckyNumber = hScopeObj.lucky_number
-    var categoryIndex = (Math.floor(userLuckyNumber / 7))
-//   console.log(categoriesObj.categories[categoryIndex])
-    
- //   console.log(userLuckyNumber)
+    var categoryIndex = (Math.floor(userLuckyNumber / 7.69))
+    var userCategory = categoriesObj.categories[categoryIndex].strCategory
+ pickRecipe(userCategory)
+
 }
 
-// get meal id number
-// diplay full meal details by id 
+// pick recipe from category 
+function pickRecipe(userCategory) {
+    var selectRecipeUrl = "http://www.themealdb.com/api/json/v1/1/filter.php?c=" + userCategory
+    fetch (selectRecipeUrl)
+    .then(function (response) {
+        return response.json()
+    })
+    .then(function (data) {
+        var recipeList = data
+        var mealIndex = (Math.floor(Math.random()*(recipeList.meals.length)))
+        var selectedRecipe = data.meals[mealIndex].idMeal
+        getRecipe(selectedRecipe)
+    })
+}
 
 // event listeners
 
