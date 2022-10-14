@@ -1,11 +1,3 @@
-// var dropdown = document.querySelector(".dropdown");
-// dropdown.addEventListener("click", function (event) {
-//   event.stopPropagation();
-//   dropdown.classList.toggle("is-active");
-// });
-
-
-
 var userBirthdayForm = document.querySelector('form')
 var userBirthdayInput = document.getElementById('userBirthday')
 var hScopeEl = document.getElementById('hScopeContainer')
@@ -29,12 +21,8 @@ var reformatDate = ''
 var reformatYear = ''
 
 var hScopeObj
-
-// var categoriesObj
-
 var categoriesObj
 var selectedRecipe
-
 
 
 // signs
@@ -172,15 +160,9 @@ function getHscope() {
     }
 
 // get recipe details by id
-
-function getRecipe() {
-    var requestMealUrl = 'http://www.themealdb.com/api/json/v1/1/lookup.php?i=52772'
-    fetch(requestMealUrl,{method: 'POST'})
-
 function getRecipe(selectedRecipe) {
     var requestMealUrl = 'http://www.themealdb.com/api/json/v1/1/lookup.php?i=' + selectedRecipe
     fetch(requestMealUrl, {method: 'POST'})
-
         .then(function (response) {
             return response.json()
         })
@@ -202,22 +184,8 @@ function handleCategory() {
     })
     .then(function(data){
         categoriesObj = data
-
-        console.log(data)
-        userMealCat = categoriesObj.categories[0].strCategory
-        // console.log(categoriesObj)
-        // currently set to beef
-        // TODO assign based on hscope data or randomly or based on hScopeObj.lucky_number
-    })
-    // get a recipe category based on mood
-    
-    assignCategory()
-    // allow user to select recipe from a list
-    console.log(categoriesObj)
-
         assignCategory(categoriesObj)
-    }
-
+    })
 }
 
 // assign category based on lucky number
