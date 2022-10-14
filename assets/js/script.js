@@ -28,7 +28,7 @@ var reformatDate = ''
 var reformatYear = ''
 
 var hScopeObj
-var categoriesObj
+// var categoriesObj
 
 
 // signs
@@ -169,7 +169,7 @@ function getHscope() {
 // get recipe details by id
 function getRecipe() {
     var requestMealUrl = 'http://www.themealdb.com/api/json/v1/1/lookup.php?i=52772'
-    fetch(requestMealUrl)
+    fetch(requestMealUrl,{method: 'POST'})
         .then(function (response) {
             return response.json()
         })
@@ -193,6 +193,7 @@ function handleCategory() {
     })
     .then(function(data){
         categoriesObj = data
+        console.log(data)
         userMealCat = categoriesObj.categories[0].strCategory
         // console.log(categoriesObj)
         // currently set to beef
@@ -200,9 +201,9 @@ function handleCategory() {
     })
     // get a recipe category based on mood
     
-    // allow user to select recipe from a list
     assignCategory()
-console.log(categoriesObj)
+    // allow user to select recipe from a list
+    console.log(categoriesObj)
 }
 
 // assign category based on lucky number
