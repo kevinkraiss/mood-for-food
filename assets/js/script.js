@@ -164,7 +164,7 @@ function getHscope() {
 // get recipe details by id
 function getRecipe() {
     var requestMealUrl = 'http://www.themealdb.com/api/json/v1/1/lookup.php?i=52772'
-    fetch(requestMealUrl)
+    fetch(requestMealUrl, {method: 'POST'})
         .then(function (response) {
             return response.json()
         })
@@ -192,18 +192,20 @@ function handleCategory() {
         // console.log(categoriesObj)
         // currently set to beef
         // TODO assign based on hscope data or randomly or based on hScopeObj.lucky_number
+        assignCategory(categoriesObj)
     })
     // get a recipe category based on mood
     
     // allow user to select recipe from a list
-    assignCategory()
-console.log(categoriesObj)
+
 }
 
 // assign category based on lucky number
-function assignCategory() {
+function assignCategory(categoriesObj) {
     userLuckyNumber = hScopeObj.lucky_number
     var categoryIndex = (Math.floor(userLuckyNumber / 7))
+    console.log(categoriesObj)
+    console.log(categoriesObj.categories[categoryIndex])
 //   console.log(categoriesObj.categories[categoryIndex])
     
  //   console.log(userLuckyNumber)
