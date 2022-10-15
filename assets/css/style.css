@@ -43,7 +43,7 @@
   }
   
   .stars {
-   background: rgb(2, 0, 5) url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+   background: rgb(2, 0, 2) url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
    position: absolute;
       top: 0;
       bottom: 0;
@@ -90,8 +90,8 @@
     animation:move-background 150s linear infinite;
   }
   img{
-    height: 70vh;
-    width:70vh;
+    height: 40vh;
+    width:40vh;
     position: absolute;
     z-index: 3;
     right: 20px;
