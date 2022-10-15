@@ -10,7 +10,7 @@
   <body>
 
     <div class="background-container">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/moon2.png" alt="">
+        <img id="moon" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/moon2.png" alt="">
         <div class="stars"></div>
         <div class="twinkling"></div>
         <div class="clouds"></div>
@@ -27,9 +27,11 @@
           <nav class="navbar">
               <div class="container">
                   <div class="navbar-brand">
-                  <p class="title">
-                      Mood for <strong>Food</strong>
-                    </p>
+                  <img src="./assets/images/mood-cloud-hollow.png" class="title-mood">
+                  </img>
+                <p> for</p>
+                <img src="./assets/images/food-letters.png" class="title-food">
+                </img>  
                 <!-- Mood for Food title will go here -->
                 <!-- <figure class="image is-128x128">
                     <img src="./images/367-3675220_letter-m-png-free-commercial-use-image-letter.png">
@@ -41,7 +43,7 @@
         <!-- Hero content: will be in the middle -->
         <div class="hero-body">
           <div class="container has-text-centered">
-                <p class="title">
+                <p class="birthday-input">
                     Please Enter Birthdate
                 </p>
                 <form>
@@ -53,8 +55,8 @@
                     </div>
                 </form>
             <div>
-                <figure id="darkHori" class="image is-128x128 is-inline-block">
-                  <img src="./assets/images/pi">
+                <figure id="darkHori" class="image is-256x256 is-inline-block">
+                  <img src="./assets/images/darkHori.png">
                 </figure>
             </div>
 
@@ -73,9 +75,9 @@
               <div class="column zodiacSign">
                   <h2>Hello, <span id="sign"></span>!</h2>
                       <div class="card-image has-text-centered">
-                          <!-- <figure id="zodiacSymbol" class="is-inline-block">
-                              <img src="darkHori.png" alt="">
-                          </figure> -->
+                          <figure id="zodiacSymbol" class="is-inline-block">
+                              <img src="./assets/images/Leo-card.jpeg" alt="">
+                          </figure>
                       </div>    
                   <h3>Your current mood is <span id="userMoodHeader"></span>.</h3>
                   </div>
