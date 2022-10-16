@@ -34,6 +34,16 @@
       }
   }
   
+@font-face {
+    font-family: diogenes;
+    src: url(/Users/petergeipel/Desktop/code/moods4foods/mood-for-food/DIOGENES.ttf);
+    font-weight: 400;
+}
+
+h2 {
+    font-family: diogenes;
+}
+  
   .background-container{
       position: fixed;
       top: 0;
