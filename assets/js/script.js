@@ -129,7 +129,10 @@ function renderHscope() {
     hScopeEl.textContent = userHscope
     userMoodHeaderEl.textContent = userMood
     recipeNameEl.textContent = userMeal
-    recipeInsEl.textContent = userRecipeIns
+    recipeInsEl.innerHTML = userRecipeIns.split('. ').map(function(str){
+        console.log(str)
+        return "<p>" + str + "</p>" 
+    }).join('')
     signCardEl.src = userSignCard
 
     
@@ -186,7 +189,7 @@ function getRecipe(selectedRecipe) {
         .then(function(data) {
             mealDbObj = data
             userMeal = mealDbObj.meals[0].strMeal
-            userRecipeIns = mealDbObj.meals[0].strInstructions    
+            userRecipeIns = mealDbObj.meals[0].strInstructions   
         renderHscope()
 
         })
