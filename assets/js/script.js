@@ -220,12 +220,7 @@ function assignCategory(categoriesObj) {
     userLuckyNumber = hScopeObj.lucky_number
     var categoryIndex = (Math.floor(userLuckyNumber / 7.69))
     var userCategory = categoriesObj.categories[categoryIndex].strCategory
-<<<<<<< HEAD
     pickRecipe(userCategory)
-
-=======
- pickRecipe(userCategory)
->>>>>>> 5a12dea9da17a610e40945c30b2ccb0c0d5468a2
 }
 
 // pick recipe from category 
