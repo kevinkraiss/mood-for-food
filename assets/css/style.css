@@ -33,6 +33,17 @@
     }
 }
 
+@font-face {
+    font-family: diogenes;
+    src: url(fonts/DIOGENES.ttf);
+    font-weight: 400;
+    font-display: swap;
+}
+
+.birthday-input {
+    font-family: diogenes; Helvetica: san-serif;
+}
+
 .background-container{
     position: fixed;
     top: 0;
@@ -41,6 +52,7 @@
     right: 0;
 }
   
+
 .stars {
     background: rgb(2, 0, 5) url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
     position: absolute;
@@ -51,6 +63,7 @@
     display: block;
     z-index: 0;
 }
+
   
 .twinkling{
     width:10000px;
@@ -130,8 +143,8 @@
     right: 20px;
 }
 
-.birthday-input{
-    font-size: 30px;
+.birthday-input {
+    font-size: 35px;
     text-align: center;
 }
 
@@ -173,7 +186,7 @@
     border-radius: 15px;
 }
 
-.userMoodHeader {
+#userMoodHeader {
     font-weight: bold;
 }
 
@@ -208,11 +221,14 @@ h2 {
     text-align: center;
     font-size: 30px;
     border-bottom: solid 2px white;
+    font-family: diogenes; Helvetica: san-serif;
 }
  
 h3 {
     text-align: center;
 }
+
+
  
 @media only screen and (max-width: 768px) {
     .ordered-mobile {
@@ -221,9 +237,11 @@ h3 {
     }
     .ordered-mobile .zodiacSign {
        order: 1;
+       margin-bottom: 20px;
     }
     .ordered-mobile .foodResults {
        order: 2;
+       margin-bottom: 20px;
     }
     .ordered-mobile .horoscope {
        order: 3;
