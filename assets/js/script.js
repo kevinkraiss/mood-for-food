@@ -107,6 +107,11 @@ var zodaicSigns = [
     }
 ]
 
+function onLoad () {
+    var userFavoriteName = JSON.parse(localStorage.getItem('recipeName')) || []
+    var userFavoriteRecipe = JSON.parse(localStorage.getItem('recipeIns')) || []
+}
+
 // renders horoscope text to element
 
 function renderHscope() {
