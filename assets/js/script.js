@@ -171,8 +171,8 @@ function getHscope() {
     .then(function(data) {
         hScopeObj = data
         userMood = hScopeObj.mood
-        userHscope = hScopeObj.description 
-        handleCategory()        
+        userHscope = hScopeObj.description
+        handleCategory()       
         })
     }
 
