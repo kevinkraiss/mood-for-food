@@ -5,11 +5,13 @@ var userMoodHeaderEl = document.getElementById('userMoodHeader')
 var zodiacSignEl = document.getElementById('zodiacSymbol')
 var recipeNameEl = document.getElementById('recipeName')
 var recipeInsEl = document.getElementById('recipeIns')
+var signCardEl = document.getElementById('signCard')
 
 var userSign = ''
 var userMood
 var userHscope = ''
 var userLuckyNumber
+var userSignCard = ''
 
 var userMealCat
 var userMeal
@@ -31,79 +33,92 @@ var zodaicSigns = [
     {
     sign:'aries',
     begDate: '-03-21',
-    endDate: '-04-19'
+    endDate: '-04-19',
+    card: 'assets/images/Aqua-card.png'
     },
 
     {
     sign:'taurus',
     begDate: '-04-20',
-    endDate: '-05-20'
+    endDate: '-05-20',
+    card: 'assets/images/taurus-card.png'
     },
 
     {
     sign:'gemini',
     begDate: '-05-21',
-    endDate: '-06-21'
+    endDate: '-06-21',
+    card: 'assets/images/Gemini-card.png'
     },
 
     {
     sign:'cancer',
     begDate: '-06-22',
-    endDate: '-07-22'
+    endDate: '-07-22',
+    card: 'assets/images/Cancer-card.jpeg'
     },
 
     {
     sign:'leo',
     begDate: '-07-23',
-    endDate: '-08-22'
+    endDate: '-08-22',
+    card: 'assets/images/Leo-card.jpeg'
     },
 
     {
     sign:'virgo',
     begDate: '-08-23',
-    endDate: '-09-22'
+    endDate: '-09-22',
+    card: 'assets/images/Virgo-card.png'
     },
 
     {
     sign:'libra',
     begDate: '-09-23',
-    endDate: '-10-22'
+    endDate: '-10-22',
+    card: 'assets/images/Libra-card.png'
     },
 
     {
     sign:'scorpio',
     begDate: '-10-24',
-    endDate: '-11-21'
+    endDate: '-11-21', 
+    card: 'assets/images/Scorpio-card.jpeg'
     },
 
     {
     sign:'sagittarius',
     begDate: '-11-22',
-    endDate: '-12-21'
+    endDate: '-12-21',
+    card: 'assets/images/Sagitarius-card.png'
     },
 
     {
     sign:'capricorn',
     begDate: '-12-22',
-    endDate: '-12-31'
+    endDate: '-12-31',
+    card: 'assets/images/Capricorn-card.jpeg'
     },
 
     {
     sign:'capricorn',
     begDate: '-01-01',
-    endDate: '-01-19'
+    endDate: '-01-19',
+    card: 'assets/images/Capricorn-card.jpeg'
     },
 
     {
     sign:'aquarius',
     begDate: '-01-20',
-    endDate: '-02-18'
+    endDate: '-02-18',
+    card: 'assets/images/Aqua-card.jpeg'
     },
 
     {
     sign:'pisces',
     begDate: '-02-19',
-    endDate: '-03-20'
+    endDate: '-03-20',
+    card: 'assets/images/pisces-card.jpeg'
     }
 ]
 
@@ -120,6 +135,7 @@ function renderHscope() {
     userMoodHeaderEl.textContent = userMood
     recipeNameEl.textContent = userMeal
     recipeInsEl.textContent = userRecipeIns
+    signCardEl.src = userSignCard
 
     
 }
@@ -144,6 +160,7 @@ function convertHscope() {
 for (var i = 0; i < zodaicSigns.length; i++) {
     if (moment(reformatYear + '-' + reformatDate).isBetween(reformatYear + zodaicSigns[i].begDate, reformatYear + zodaicSigns[i].endDate, 'day') === true ) {
         userSign = zodaicSigns[i].sign
+        userSignCard = zodaicSigns[i].card
     }
 }     
     getHscope()
@@ -203,8 +220,12 @@ function assignCategory(categoriesObj) {
     userLuckyNumber = hScopeObj.lucky_number
     var categoryIndex = (Math.floor(userLuckyNumber / 7.69))
     var userCategory = categoriesObj.categories[categoryIndex].strCategory
+<<<<<<< HEAD
     pickRecipe(userCategory)
 
+=======
+ pickRecipe(userCategory)
+>>>>>>> 5a12dea9da17a610e40945c30b2ccb0c0d5468a2
 }
 
 // pick recipe from category 

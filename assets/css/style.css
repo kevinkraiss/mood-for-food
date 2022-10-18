@@ -102,6 +102,7 @@
     animation:move-background 150s linear infinite;
 }
 
+
 .wheel{
     position: relative;
 }
@@ -142,6 +143,7 @@
     z-index: 3;
     right: 20px;
 }
+
 
 .birthday-input {
     font-size: 35px;
