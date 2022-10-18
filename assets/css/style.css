@@ -41,7 +41,7 @@
 }
 
 .birthday-input {
-    font-family: diogenes; Helvetica: san-serif;
+    font-family: diogenes, Helvetica, san-serif;
 }
 
 .background-container{
@@ -223,7 +223,7 @@ h2 {
     text-align: center;
     font-size: 30px;
     border-bottom: solid 2px white;
-    font-family: diogenes; Helvetica: san-serif;
+    font-family: diogenes, Helvetica, san-serif;
 }
  
 h3 {
