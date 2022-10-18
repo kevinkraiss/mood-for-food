@@ -89,12 +89,43 @@
     animation:move-background 150s linear infinite;
 }
 
-img{
+.wheel{
+    position: relative;
+}
+
+.hero-head, p {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    margin-left: 15px;
+    padding-top: 2rem;
+    
+}
+
+/* .hero-head , .title-food {
+    
+} */
+
+.title-mood , .title-food {
+    padding-top: 1rem;
+    width: 10%;
+    height: auto;
+    object-fit: contain;
+    
+    
+}
+
+#moon {
     height: 40vh;
     width:40vh;
     position: absolute;
     z-index: 3;
     right: 20px;
+}
+
+.birthday-input{
+    font-size: 30px;
+    text-align: center;
 }
 
 #userBirthday {
@@ -107,6 +138,36 @@ img{
 
 #darkHori {
     padding-top: 1rem;
+    width: 300px;
+    height: auto;
+}
+
+
+.ordered-mobile {
+    padding-top: 1rem;
+}
+
+.foodResults {
+    background-color: rgba(122, 119, 119, 0.5);
+    margin: 0 20px 0 20px;
+    border-radius: 15px;
+
+}
+
+.zodiacSign {
+    background-color: rgba(122, 119, 119, 0.5);
+    margin: 0 20px 0 20px;
+    border-radius: 15px;
+}
+
+.horoscope {
+    background-color: rgba(122, 119, 119, 0.5);
+    margin: 0 20px 0 20px;
+    border-radius: 15px;
+}
+
+.userMoodHeader {
+    font-weight: bold;
 }
 
 /* .ordered-mobile {

@@ -10,21 +10,28 @@
   <body>
 
     <div class="background-container">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/moon2.png" alt="">
+        <img id="moon" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/moon2.png" alt="">
         <div class="stars"></div>
         <div class="twinkling"></div>
         <div class="clouds"></div>
     </div>
+
+
+    <section class="hero is-info is-medium ">
+
     <h2></h2>
     <section class="hero is-info is-medium">
+
         <!-- Hero head: will stick at the top -->
         <div class="hero-head">
           <nav class="navbar">
               <div class="container">
                   <div class="navbar-brand">
-                  <p class="title">
-                      Mood for <strong>Food</strong>
-                    </p>
+                  <img src="./assets/images/mood-cloud-hollow.png" class="title-mood">
+                  </img>
+                <p> for</p>
+                <img src="./assets/images/food-letters.png" class="title-food">
+                </img>  
                 <!-- Mood for Food title will go here -->
                 <!-- <figure class="image is-128x128">
                     <img src="./images/367-3675220_letter-m-png-free-commercial-use-image-letter.png">
@@ -36,19 +43,23 @@
         <!-- Hero content: will be in the middle -->
         <div class="hero-body">
           <div class="container has-text-centered">
-                <p class="title">
+                <p class="birthday-input">
                     Please Enter Birthdate
                 </p>
                 <form>
                     <div>
                         <label for="user-birthday"></label>
                         <input class= "input is-focused"type="date" id="userBirthday">
-                        <button class="button is-primary is-light is normal" 
-                        type="submit" >Search</button>
+                        <button class="button is-info is-light is normal" 
+                        type="submit" >Submit</button>
                     </div>
                 </form>
             <div>
+<<<<<<< HEAD
                 <figure id="darkHori" class="wheel">
+=======
+                <figure id="darkHori" class="image is-256x256 is-inline-block">
+>>>>>>> 888f9f6e483bac1bda6a48b85a9286878df4a750
                   <img src="./assets/images/darkHori.png">
                 </figure>
             </div>
@@ -68,9 +79,9 @@
               <div class="column zodiacSign">
                   <h2>Mood <span id="sign"></span></h2>
                       <div class="card-image has-text-centered">
-                          <!-- <figure id="zodiacSymbol" class="is-inline-block">
-                              <img src="darkHori.png" alt="">
-                          </figure> -->
+                          <figure id="zodiacSymbol" class="is-inline-block">
+                              <img src="./assets/images/Leo-card.jpeg" alt="">
+                          </figure>
                       </div>    
                   <h3>Your current mood is <span class="userMoodHeader" id="userMoodHeader"></span>.</h3>
                   </div>
