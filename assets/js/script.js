@@ -181,7 +181,7 @@ function getHscope() {
 
 // get recipe details by id
 function getRecipe(selectedRecipe) {
-    var requestMealUrl = 'http://www.themealdb.com/api/json/v1/1/lookup.php?i=' + selectedRecipe
+    var requestMealUrl = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + selectedRecipe
     fetch(requestMealUrl, {method: 'POST'})
         .then(function (response) {
             return response.json()
@@ -197,7 +197,7 @@ function getRecipe(selectedRecipe) {
 
 // list all categories
 function handleCategory() {
-    var requestCategoryUrl = 'http://www.themealdb.com/api/json/v1/1/categories.php'
+    var requestCategoryUrl = 'https://www.themealdb.com/api/json/v1/1/categories.php'
     fetch(requestCategoryUrl)
     .then(function (response) {
         return response.json()
@@ -218,7 +218,7 @@ function assignCategory(categoriesObj) {
 
 // pick recipe from category 
 function pickRecipe(userCategory) {
-    var selectRecipeUrl = "http://www.themealdb.com/api/json/v1/1/filter.php?c=" + userCategory
+    var selectRecipeUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?c=" + userCategory
     fetch (selectRecipeUrl)
     .then(function (response) {
         return response.json()
