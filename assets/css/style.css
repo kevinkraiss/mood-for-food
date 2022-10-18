@@ -41,7 +41,7 @@
 }
 
 .birthday-input {
-    font-family: diogenes; Helvetica: san-serif;
+    font-family: diogenes, Helvetica, san-serif;
 }
 
 .background-container{
@@ -115,8 +115,13 @@
 
 
 
+#favorites {
+    font-family: diogenes, Helvetica, san-serif;
+}
+
+
 .hero-head p {
-    
+    font-family: diogenes, Helvetica, san-serif;
     font-size: 60px;
     margin-left: 25px;
     padding-top: 2rem;
@@ -162,6 +167,7 @@
     padding-top: 1rem;
     width: 300px;
     height: auto;
+    padding-bottom: 1rem;
 }
 
 
@@ -223,7 +229,7 @@ h2 {
     text-align: center;
     font-size: 30px;
     border-bottom: solid 2px white;
-    font-family: diogenes; Helvetica: san-serif;
+    font-family: diogenes, Helvetica, san-serif;
 }
  
 h3 {
