@@ -221,5 +221,12 @@ h3 {
     .ordered-mobile .horoscope {
        order: 3;
     }
+    #moon {
+        height: 30vh;
+        width:30vh;
+        position: absolute;
+        z-index: 3;
+        right: 20px;
+    }
 }
  

@@ -161,7 +161,7 @@ function getHscope() {
 
 // get recipe details by id
 function getRecipe(selectedRecipe) {
-    var requestMealUrl = 'http://www.themealdb.com/api/json/v1/1/lookup.php?i=' + selectedRecipe
+    var requestMealUrl = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + selectedRecipe
     fetch(requestMealUrl, {method: 'POST'})
         .then(function (response) {
             return response.json()
@@ -169,15 +169,20 @@ function getRecipe(selectedRecipe) {
         .then(function(data) {
             mealDbObj = data
             userMeal = mealDbObj.meals[0].strMeal
-            userRecipeIns = mealDbObj.meals[0].strInstructions    
-        renderHscope()
+            userRecipeIns = mealDbObj.meals[0].strInstructions
+            // add usermeal and userrecipeins to local storage
+            localStorage.setItem('recipeName', JSON.stringify(userMeal))
+            localStorage.setItem('recipeIns', JSON.stringify(userRecipeIns))
+            var userFavoriteName = JSON.parse(localStorage.getItem('recipeName')) || []
+            var userFavoriteRecipe = JSON.parse(localStorage.getItem('recipeIns')) || []
+            renderHscope()
 
         })
 }
 
 // list all categories
 function handleCategory() {
-    var requestCategoryUrl = 'http://www.themealdb.com/api/json/v1/1/categories.php'
+    var requestCategoryUrl = 'https://www.themealdb.com/api/json/v1/1/categories.php'
     fetch(requestCategoryUrl, {method: 'POST'})
     .then(function (response) {
         return response.json()
@@ -193,13 +198,13 @@ function assignCategory(categoriesObj) {
     userLuckyNumber = hScopeObj.lucky_number
     var categoryIndex = (Math.floor(userLuckyNumber / 7.69))
     var userCategory = categoriesObj.categories[categoryIndex].strCategory
- pickRecipe(userCategory)
+    pickRecipe(userCategory)
 
 }
 
 // pick recipe from category 
 function pickRecipe(userCategory) {
-    var selectRecipeUrl = "http://www.themealdb.com/api/json/v1/1/filter.php?c=" + userCategory
+    var selectRecipeUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?c=" + userCategory
     fetch (selectRecipeUrl)
     .then(function (response) {
         return response.json()
