@@ -6,6 +6,7 @@ var zodiacSignEl = document.getElementById('zodiacSymbol')
 var recipeNameEl = document.getElementById('recipeName')
 var recipeInsEl = document.getElementById('recipeIns')
 var signCardEl = document.getElementById('signCard')
+var mainContentEl = document.getElementById('mainContent')
 
 var userSign = ''
 var userMood
@@ -134,6 +135,7 @@ function renderHscope() {
         return "<p>" + str + "</p>" 
     }).join('')
     signCardEl.src = userSignCard
+    showContent()
 
     
 }
@@ -229,6 +231,11 @@ function pickRecipe(userCategory) {
         var selectedRecipe = data.meals[mealIndex].idMeal
         getRecipe(selectedRecipe)
     })
+}
+
+// show elements in DOM
+function showContent() {
+    mainContentEl.setAttribute('class', 'is-flex')
 }
 
 // event listeners
