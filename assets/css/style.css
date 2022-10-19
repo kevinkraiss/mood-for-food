@@ -265,5 +265,11 @@ h3 {
     .hero-head {
         display: block;
     }
+    /* .tabs {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } */
 }
  

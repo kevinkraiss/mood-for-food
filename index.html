@@ -27,20 +27,15 @@
           <nav class="navbar">
               <div class="container">
                   <div class="navbar-brand">
-                  <img src="./assets/images/mood-cloud-hollow.png" class="title-mood">
+                  <img src="./assets/images/mood-cloud-hollow.png" class="title-mood" alt="cloud font mood">
                   </img>
                 <p> for</p>
-                <img src="./assets/images/food-letters.png" class="title-food">
+                <img src="./assets/images/food-letters.png" class="title-food" alt="food spelt out with images of food">
                 </img>  
                 </nav>
               </div>
          
-              <div class="tabs">
-                <ul>
-                  <li class="is-active"></li>
-                  <li><a id="favorites" class="is-size-2">Favorites ❤️ </a></li>
-                </ul>
-              </div>
+             
       
         <!-- Hero content: will be in the middle -->
         <div class="hero-body">
@@ -58,7 +53,7 @@
                 </form>
             <div>
                 <figure id="darkHori" class="image is-256x256 is-inline-block">
-                  <img src="./assets/images/darkHori.png">
+                  <img src="./assets/images/darkHori.png" alt="horiscope wheel">
                 </figure>
             </div>
 
@@ -73,12 +68,18 @@
               <div class="column foodResults">
                   <h2 id="recipeName"></h2>
                   <p id="recipeIns"></p>
+                  <div class="tabs">
+                    <ul>
+                      <li class="is-active"></li>
+                      <li><a id="favorites" class="is-size-1">Favorites ❤️ </a></li>
+                    </ul>
+                  </div>
               </div>
               <div class="column zodiacSign">
                   <h2>Hello, <span id="sign"></span>!</h2>
                       <div class="card-image has-text-centered">
                           <figure id="zodiacSymbol" class="is-inline-block">
-                              <img id ='signCard' src="" alt="">
+                              <img id ='signCard' src="" alt="card describing zodiac sign">
                           </figure>
                       </div>    
                   <h3>Your current mood is <span id="userMoodHeader"></span>.</h3>
