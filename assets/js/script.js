@@ -206,28 +206,28 @@ function getRecipe(selectedRecipe) {
             userRecipeIns = mealDbObj.meals[0].strInstructions
             // add usermeal and userrecipeins to local storage
             favBtn.addEventListener('click', function() {
-                var userFavoriteName = localStorage.getItem('recipeName') || []
-                // userFavoriteName.push(userMeal)
-                localStorage.setItem('recipeName', userMeal)
-                for (var i = 0; i < userFavoriteName.length; i++) {
-                    console.log(mealNameIndex)
-                    var mealNameIndex = userFavoriteName[i]
+                var userFavoriteNameArray = []
+                userFavoriteNameArray = JSON.parse(localStorage.getItem('recipeName')) || []
+                userFavoriteNameArray.push(userMeal)
+                localStorage.setItem('recipeName', JSON.stringify(userFavoriteNameArray))
+                var userFavoriteRecipeArray = []
+                userFavoriteRecipeArray = JSON.parse(localStorage.getItem('recipeIns')) || []
+                userFavoriteRecipeArray.push(userRecipeIns)               
+                localStorage.setItem('recipeIns', JSON.stringify(userFavoriteRecipeArray))
+                for (var i = 0; i < userFavoriteNameArray.length; i++) {
+                    var mealNameIndex = userFavoriteNameArray[i]
+                    var recipeIndex = userFavoriteRecipeArray[i]
                     var mealNameTitle = document.createElement('h2')
+                    var recipeText = document.createElement('p')
                     mealNameTitle.classList.add('modal-title')
+                    recipeText.classList.add('modal-recipe-text')
                     mealNameTitle.textContent = mealNameIndex
+                    recipeText.textContent = recipeIndex
                     modalFavList.appendChild(mealNameTitle)
+                    modalFavList.appendChild(recipeText)
 
                 }
-                var userFavoriteRecipe = localStorage.getItem('recipeIns') || []
-                // userFavoriteRecipe.push(userRecipeIns)               
-                localStorage.setItem('recipeIns', JSON.stringify(userRecipeIns))
-                for (var i = 0; i < userFavoriteRecipe; i++) {
-                    var recipeIndex = userFavoriteRecipe[i]
-                    var recipeText = document.createElement('p')
-                    recipeText.classList.add('modal-recipe-text')
-                    recipeText.textContent = recipeIndex
-                    modalFavList.appendChild(recipeText)
-                }
+                modalFavList.value = ""
                 
                 
             })
