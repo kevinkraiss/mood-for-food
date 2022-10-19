@@ -6,12 +6,11 @@ var zodiacSignEl = document.getElementById('zodiacSymbol')
 var recipeNameEl = document.getElementById('recipeName')
 var recipeInsEl = document.getElementById('recipeIns')
 var signCardEl = document.getElementById('signCard')
-var addFavBtn = document.getElementById('addFav')
-var modelContent = document.getElementById('modal-content')
-var modalFavList = document.getElementById('modalFavList')
 var mainContentEl = document.getElementById('mainContent')
 var recipeContentEl = document.getElementById('recipeContent')
 var mealThumbEl = document.getElementById('mealThumb')
+var favBtn = document.getElementById('favBtn')
+var modalFavList = document.getElementById('modalFavList')
 
 var userSign = ''
 var userMood
@@ -191,9 +190,8 @@ function getHscope() {
         userMood = hScopeObj.mood
         userHscope = hScopeObj.description
         handleCategory()       
-    })
-}
-
+        })
+    }
 
 // get recipe details by id
 function getRecipe(selectedRecipe) {
@@ -207,11 +205,31 @@ function getRecipe(selectedRecipe) {
             userMeal = mealDbObj.meals[0].strMeal
             userRecipeIns = mealDbObj.meals[0].strInstructions
             // add usermeal and userrecipeins to local storage
-            addFavBtn.addEventListener('click', function() {
-                localStorage.setItem('recipeName', JSON.stringify(userMeal))
+            favBtn.addEventListener('click', function() {
+                var userFavoriteName = localStorage.getItem('recipeName') || []
+                // userFavoriteName.push(userMeal)
+                localStorage.setItem('recipeName', userMeal)
+                for (var i = 0; i < userFavoriteName.length; i++) {
+                    console.log(mealNameIndex)
+                    var mealNameIndex = userFavoriteName[i]
+                    var mealNameTitle = document.createElement('h2')
+                    mealNameTitle.classList.add('modal-title')
+                    mealNameTitle.textContent = mealNameIndex
+                    modalFavList.appendChild(mealNameTitle)
+
+                }
+                var userFavoriteRecipe = localStorage.getItem('recipeIns') || []
+                // userFavoriteRecipe.push(userRecipeIns)               
                 localStorage.setItem('recipeIns', JSON.stringify(userRecipeIns))
-                var userFavoriteName = JSON.parse(localStorage.getItem('recipeName')) || []
-                var userFavoriteRecipe = JSON.parse(localStorage.getItem('recipeIns')) || []
+                for (var i = 0; i < userFavoriteRecipe; i++) {
+                    var recipeIndex = userFavoriteRecipe[i]
+                    var recipeText = document.createElement('p')
+                    recipeText.classList.add('modal-recipe-text')
+                    recipeText.textContent = recipeIndex
+                    modalFavList.appendChild(recipeText)
+                }
+                
+                
             })
             
             renderHscope()
@@ -223,7 +241,7 @@ function getRecipe(selectedRecipe) {
 // list all categories
 function handleCategory() {
     var requestCategoryUrl = 'https://www.themealdb.com/api/json/v1/1/categories.php'
-    fetch(requestCategoryUrl, {method: 'POST'})
+    fetch(requestCategoryUrl)
     .then(function (response) {
         return response.json()
     })
@@ -238,7 +256,7 @@ function assignCategory(categoriesObj) {
     userLuckyNumber = hScopeObj.lucky_number
     var categoryIndex = (Math.floor(userLuckyNumber / 7.69))
     var userCategory = categoriesObj.categories[categoryIndex].strCategory
-    pickRecipe(userCategory)
+ pickRecipe(userCategory)
 }
 
 // pick recipe from category 
