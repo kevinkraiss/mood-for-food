@@ -211,8 +211,44 @@ function getHscope() {
         userMood = hScopeObj.mood
         userHscope = hScopeObj.description
         handleCategory()       
-        })
-    }
+    })
+}
+
+function addtoFav() {
+
+        modalFavList.innerHTML = ""
+        var modalHead = document.createElement('h1')
+        modalHead.classList.add('modal-head')
+        modalHead.textContent = "Favorite Meals"
+        modalFavList.appendChild(modalHead)
+        var userFavoriteNameArray = []
+        userFavoriteNameArray = JSON.parse(localStorage.getItem('recipeName')) || []
+        userFavoriteNameArray.push(userMeal)
+        localStorage.setItem('recipeName', JSON.stringify(userFavoriteNameArray))
+        var userFavoriteRecipeArray = []
+        userFavoriteRecipeArray = JSON.parse(localStorage.getItem('recipeIns')) || []
+        userFavoriteRecipeArray.push(userRecipeIns)               
+        localStorage.setItem('recipeIns', JSON.stringify(userFavoriteRecipeArray))
+        for (var i = 0; i < userFavoriteNameArray.length; i++) {
+            var mealNameIndex = userFavoriteNameArray[i]
+            var recipeIndex = userFavoriteRecipeArray[i]
+            var mealNameTitle = document.createElement('h2')
+            var recipeText = document.createElement('p')
+            mealNameTitle.classList.add('modal-title')
+            recipeText.classList.add('modal-recipe-text')
+            mealNameTitle.textContent = mealNameIndex
+            recipeText.textContent = recipeIndex
+            modalFavList.appendChild(mealNameTitle)
+            modalFavList.appendChild(recipeText)
+
+        }
+        // location.reload()
+        
+        
+
+}
+
+
 
 // get recipe details by id
 function getRecipe(selectedRecipe) {
@@ -226,37 +262,8 @@ function getRecipe(selectedRecipe) {
             userMeal = mealDbObj.meals[0].strMeal
             userRecipeIns = mealDbObj.meals[0].strInstructions
             // add usermeal and userrecipeins to local storage
-            favBtn.addEventListener('click', function() {
-                modalFavList.innerHTML = ""
-                var modalHead = document.createElement('h1')
-                modalHead.classList.add('modal-head')
-                modalHead.textContent = "Favorite Meals"
-                modalFavList.appendChild(modalHead)
-                var userFavoriteNameArray = []
-                userFavoriteNameArray = JSON.parse(localStorage.getItem('recipeName')) || []
-                userFavoriteNameArray.push(userMeal)
-                localStorage.setItem('recipeName', JSON.stringify(userFavoriteNameArray))
-                var userFavoriteRecipeArray = []
-                userFavoriteRecipeArray = JSON.parse(localStorage.getItem('recipeIns')) || []
-                userFavoriteRecipeArray.push(userRecipeIns)               
-                localStorage.setItem('recipeIns', JSON.stringify(userFavoriteRecipeArray))
-                for (var i = 0; i < userFavoriteNameArray.length; i++) {
-                    var mealNameIndex = userFavoriteNameArray[i]
-                    var recipeIndex = userFavoriteRecipeArray[i]
-                    var mealNameTitle = document.createElement('h2')
-                    var recipeText = document.createElement('p')
-                    mealNameTitle.classList.add('modal-title')
-                    recipeText.classList.add('modal-recipe-text')
-                    mealNameTitle.textContent = mealNameIndex
-                    recipeText.textContent = recipeIndex
-                    modalFavList.appendChild(mealNameTitle)
-                    modalFavList.appendChild(recipeText)
-
-                }
-                location.reload()
-                
-                
-            })
+            
+            
             
             renderHscope()
 
@@ -282,7 +289,7 @@ function assignCategory(categoriesObj) {
     userLuckyNumber = hScopeObj.lucky_number
     var categoryIndex = (Math.floor(userLuckyNumber / 7.69))
     var userCategory = categoriesObj.categories[categoryIndex].strCategory
- pickRecipe(userCategory)
+    pickRecipe(userCategory)
 }
 
 // pick recipe from category 
@@ -308,5 +315,5 @@ function showContent() {
 }
 onLoad()
 // event listeners
-
+favBtn.addEventListener('click', addtoFav)
 userBirthdayForm.addEventListener('submit', handleBirthday)
