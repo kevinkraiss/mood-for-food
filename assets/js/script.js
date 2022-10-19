@@ -8,6 +8,7 @@ var recipeInsEl = document.getElementById('recipeIns')
 var signCardEl = document.getElementById('signCard')
 var mainContentEl = document.getElementById('mainContent')
 var recipeContentEl = document.getElementById('recipeContent')
+var mealThumbEl = document.getElementById('mealThumb')
 
 var userSign = ''
 var userMood
@@ -19,6 +20,7 @@ var userMealCat
 var userMeal
 var userRecipeIns
 var userCategory
+var mealThumb =''
 
 var birthday
 var reformatDate = ''
@@ -131,10 +133,13 @@ function renderHscope() {
     hScopeEl.textContent = userHscope
     userMoodHeaderEl.textContent = userMood
     recipeNameEl.textContent = userMeal
+    
+    signCardEl.src = userSignCard
+    mealThumbEl.src = mealThumb
+
     recipeInsEl.innerHTML = userRecipeIns.split('. ').map(function(str){
         return "<p>" + str + "</p>" 
     }).join('')
-    signCardEl.src = userSignCard
     showContent()
 
     
@@ -229,6 +234,7 @@ function pickRecipe(userCategory) {
         var recipeList = data
         var mealIndex = (Math.floor(Math.random()*(recipeList.meals.length)))
         var selectedRecipe = data.meals[mealIndex].idMeal
+        mealThumb = data.meals[mealIndex].strMealThumb
         getRecipe(selectedRecipe)
     })
 }
