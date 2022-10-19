@@ -237,6 +237,29 @@ h4 {
     justify-content: center;
 }
 
+#recipeContent {
+    margin-top: 20px;
+
+}
+
+#mealThumb {
+    width: 50%;
+    margin: 10px;
+    border-radius: 15px;
+}
+
+#favorites {
+    border: solid 2px white;
+    border-radius: 15px;
+    transition: 0.5s;
+    margin-top: 10px;
+}
+
+a:hover {
+    background-color: rgba(37, 37, 37, 0.75);
+
+}
+
 h2 {
     text-align: center;
     font-size: 30px;

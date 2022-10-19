@@ -9,6 +9,9 @@ var signCardEl = document.getElementById('signCard')
 var addFavBtn = document.getElementById('addFav')
 var modelContent = document.getElementById('modal-content')
 var modalFavList = document.getElementById('modalFavList')
+var mainContentEl = document.getElementById('mainContent')
+var recipeContentEl = document.getElementById('recipeContent')
+var mealThumbEl = document.getElementById('mealThumb')
 
 var userSign = ''
 var userMood
@@ -20,6 +23,7 @@ var userMealCat
 var userMeal
 var userRecipeIns
 var userCategory
+var mealThumb =''
 
 var birthday
 var reformatDate = ''
@@ -137,8 +141,14 @@ function renderHscope() {
     hScopeEl.textContent = userHscope
     userMoodHeaderEl.textContent = userMood
     recipeNameEl.textContent = userMeal
-    recipeInsEl.textContent = userRecipeIns
+    
     signCardEl.src = userSignCard
+    mealThumbEl.src = mealThumb
+
+    recipeInsEl.innerHTML = userRecipeIns.split('. ').map(function(str){
+        return "<p>" + str + "</p>" 
+    }).join('')
+    showContent()
 
     
 }
@@ -206,6 +216,7 @@ function getRecipe(selectedRecipe) {
             
             renderHscope()
 
+
         })
 }
 
@@ -241,8 +252,15 @@ function pickRecipe(userCategory) {
         var recipeList = data
         var mealIndex = (Math.floor(Math.random()*(recipeList.meals.length)))
         var selectedRecipe = data.meals[mealIndex].idMeal
+        mealThumb = data.meals[mealIndex].strMealThumb
         getRecipe(selectedRecipe)
     })
+}
+
+// show elements in DOM
+function showContent() {
+    mainContentEl.setAttribute('class', 'is-flex')
+    recipeContentEl.setAttribute('class', 'is-flex')
 }
 
 // event listeners

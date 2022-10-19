@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mood for Food Test</title>
+    <title>Mood for Food</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
@@ -34,7 +34,6 @@
                 </img>  
                 </nav>
               </div>
-              
         <!-- Hero content: will be in the middle -->
         <div class="hero-body">
           <div class="container has-text-centered">
@@ -62,6 +61,7 @@
               </p>
 
             </div> -->
+
             <div class="columns ordered-mobile">
               <div class="column foodResults">
                   <div class="row foodTitle">
@@ -83,8 +83,23 @@
                   <h3>Your current mood is <span class="userMoodHeader" id="userMoodHeader"></span>.</h3>
                   </div>
               <div class="column horoscope">
+                <!-- change -->
+            <div id="mainContent" class="is-hidden">
+              <div class="columns is-centered ordered-mobile">
+                <div class="column is-3 zodiacSign">
+                  <h2>Hello<span id="sign"></span>!</h2>
+                  <div class="card-image has-text-centered">
+                    <figure id="zodiacSymbol" class="is-inline-block">
+                      <h3>Your current mood is <span id="userMoodHeader"></span>.</h3>
+                      <img id ='signCard' src="" alt="">
+                    </figure>
+                  </div>    
+                </div>
+                <div class="column is-3 horoscope">
+                  <!-- change -->
                   <h2>Horoscope</h2>
                   <p id="hScopeContainer"></p>
+                </div>
               </div>
           </div>
 
@@ -102,6 +117,26 @@
           
             <button class="modal-close is-large" aria-label="close"></button>
           </div>
+
+            </div>
+
+            <div id="recipeContent" class="is-hidden">       
+              <div class="columns is-centered ordered-mobile">
+                <div class="column is-8  foodResults">
+                  <h2 id="recipeName"></h2>
+                  <div>
+                    <img id="mealThumb">
+                  </div>
+                  <p id="recipeIns"></p>
+                  <div class="tabs is-centered">
+                    <ul>
+                      <a id="favorites" class="is-size-4">Favorites ❤️ </a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           
         
       
