@@ -34,12 +34,7 @@
                 </img>  
                 </nav>
               </div>
-              <div class="tabs">
-                <ul>
-                  <li id="favorites" class="is-active"><a>Pictures</a></li>
-                  <li><a class="is-size-2">Favorites ❤️ </a></li>
-                </ul>
-              </div>
+              
         <!-- Hero content: will be in the middle -->
         <div class="hero-body">
           <div class="container has-text-centered">
@@ -69,8 +64,14 @@
             </div> -->
             <div class="columns ordered-mobile">
               <div class="column foodResults">
-                  <h2 id="recipeName"></h2>
+                  <div class="row foodTitle">
+                    <h4 id="recipeName"></h4>
+                    <button class="addFav" id="addFav">❤️</button>
+                  </div>
                   <p id="recipeIns"></p>
+                  <button class="js-modal-trigger" data-target="modal-js-example">
+                    Favorites ❤️
+                  </button>
               </div>
               <div class="column zodiacSign">
                   <h2>Mood <span id="sign"></span></h2>
@@ -86,6 +87,21 @@
                   <p id="hScopeContainer"></p>
               </div>
           </div>
+
+
+
+          <div id="modal-js-example" class="modal">
+            <div class="modal-background"></div>
+          
+            <div id="modal-content" class="modal-content">
+              <div class="box">
+                <p>Modal JS example</p>
+                <!-- Your content where favorites list and recipes need to go-->
+              </div>
+            </div>
+          
+            <button class="modal-close is-large" aria-label="close"></button>
+          </div>
           
         
       
@@ -97,8 +113,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"crossorigin="anonymous"></script>
-
-
+    <script src="./assets/js/modal.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
 

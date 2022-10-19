@@ -6,6 +6,8 @@ var zodiacSignEl = document.getElementById('zodiacSymbol')
 var recipeNameEl = document.getElementById('recipeName')
 var recipeInsEl = document.getElementById('recipeIns')
 var signCardEl = document.getElementById('signCard')
+var addFavBtn = document.getElementById('addFav')
+var modelContent = document.getElementById('modal-content')
 
 var userSign = ''
 var userMood
