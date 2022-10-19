@@ -162,6 +162,7 @@
     padding-top: 1rem;
     width: 300px;
     height: auto;
+    padding-bottom: 2.5rem;
 }
 
 
@@ -195,6 +196,11 @@
 /* .ordered-mobile {
 
 } */
+
+#recipeContent {
+    justify-content: center;
+    
+} 
 
 .foodResults {
     background-color: rgba(122, 119, 119, 0.5);
