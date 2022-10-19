@@ -7,6 +7,7 @@ var recipeNameEl = document.getElementById('recipeName')
 var recipeInsEl = document.getElementById('recipeIns')
 var signCardEl = document.getElementById('signCard')
 var mainContentEl = document.getElementById('mainContent')
+var recipeContentEl = document.getElementById('recipeContent')
 
 var userSign = ''
 var userMood
@@ -131,7 +132,6 @@ function renderHscope() {
     userMoodHeaderEl.textContent = userMood
     recipeNameEl.textContent = userMeal
     recipeInsEl.innerHTML = userRecipeIns.split('. ').map(function(str){
-        console.log(str)
         return "<p>" + str + "</p>" 
     }).join('')
     signCardEl.src = userSignCard
@@ -236,6 +236,7 @@ function pickRecipe(userCategory) {
 // show elements in DOM
 function showContent() {
     mainContentEl.setAttribute('class', 'is-flex')
+    recipeContentEl.setAttribute('class', 'is-flex')
 }
 
 // event listeners

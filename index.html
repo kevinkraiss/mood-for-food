@@ -64,18 +64,8 @@
 
             </div> -->
             <div id="mainContent" class="is-hidden">
-              <div class="columns ordered-mobile">
-                <div class="column foodResults">
-                  <h2 id="recipeName"></h2>
-                  <p id="recipeIns"></p>
-                  <div class="tabs">
-                    <ul>
-                      <li id="favorites" class="is-active"></li>
-                      <li><a class="is-size-1">Favorites ❤️ </a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="column zodiacSign">
+              <div class="columns is-centered ordered-mobile">
+                <div class="column is-3 zodiacSign">
                   <h2>Hello<span id="sign"></span>!</h2>
                   <div class="card-image has-text-centered">
                     <figure id="zodiacSymbol" class="is-inline-block">
@@ -84,9 +74,24 @@
                     </figure>
                   </div>    
                 </div>
-                <div class="column horoscope">
+                <div class="column is-3 horoscope">
                   <h2>Horoscope</h2>
                   <p id="hScopeContainer"></p>
+                </div>
+              </div>
+            </div>
+
+            <div id="recipeContent" class="is-hidden">       
+              <div class="columns is-centered ordered-mobile">
+                <div class="column is-8  foodResults">
+                  <h2 id="recipeName"></h2>
+                  <p id="recipeIns"></p>
+                  <div class="tabs">
+                    <ul>
+                      <li id="favorites" class="is-active"></li>
+                      <li><a class="is-size-1">Favorites ❤️ </a></li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
