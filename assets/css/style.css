@@ -40,6 +40,10 @@
     font-display: swap;
 }
 
+* {
+    font-family: diogenes, Helvetica, san-serif; 
+}
+
 .birthday-input {
     font-family: diogenes, Helvetica, san-serif;
 }
@@ -221,6 +225,7 @@
 
 #recipeContent {
     margin-top: 20px;
+    justify-content: center;
 
 }
 
@@ -231,8 +236,10 @@
 }
 
 #favorites {
-    border: solid 2px white;
-    border-radius: 15px;
+    border: solid 2px black;
+    font-family: diogenes, Helvetica, san-serif;
+    background-color: rgba(248, 245, 245, 0.5);
+    border-radius: 10px;
     transition: 0.5s;
     margin-top: 10px;
 }
@@ -257,6 +264,7 @@ h3 {
     flex-direction: row;
     border-bottom: solid 2px white;
     justify-content: center;
+    padding-bottom: 10px;
 
 }
 
@@ -268,10 +276,34 @@ h3 {
 
 #favBtn {
     margin-left: 10px;
+    font-family: diogenes, Helvetica, san-serif; 
+    background-color: rgba(248, 245, 245, 0.5);
+    border-radius: 10px;
+    height: 45px;
+
 }
 
-/* .modal-title */
-/* .modal-recipe-text */
+#favBtn:hover {
+    cursor: pointer;
+    background-color: rgba(194, 145, 55, 0.75);
+}
+
+.modal-head {
+    
+    border-bottom: solid 2px;
+    font-size: 40px;
+}
+
+.modal-title {
+    
+    border-bottom: solid 2px;
+    margin-top: 15px;
+}
+
+.modal-recipe-text {
+    
+    margin-top: 15px;
+}
 
  
 @media only screen and (max-width: 768px) {
