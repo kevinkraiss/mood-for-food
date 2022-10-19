@@ -17,4 +17,4 @@
 ================================
 # CSS Framework
 
-* CDN Link - "https://tailwindcss.com/docs/installation/play-cdn"
+* CDN Link - https://bulma.io/
