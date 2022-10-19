@@ -9,6 +9,8 @@ var signCardEl = document.getElementById('signCard')
 var mainContentEl = document.getElementById('mainContent')
 var recipeContentEl = document.getElementById('recipeContent')
 var mealThumbEl = document.getElementById('mealThumb')
+var favBtn = document.getElementById('favBtn')
+var modalFavList = document.getElementById('modalFavList')
 
 var userSign = ''
 var userMood
@@ -126,6 +128,32 @@ var zodaicSigns = [
     }
 ]
 
+function onLoad () {
+    modalFavList.innerHTML = ""
+    var modalHead = document.createElement('h1')
+    modalHead.classList.add('modal-head')
+    modalHead.textContent = "Favorite Meals"
+    modalFavList.appendChild(modalHead)
+    var userFavoriteNameArray = []
+    userFavoriteNameArray = JSON.parse(localStorage.getItem('recipeName')) || []
+    var userFavoriteRecipeArray = []
+    userFavoriteRecipeArray = JSON.parse(localStorage.getItem('recipeIns')) || []
+    for (var i = 0; i < userFavoriteNameArray.length; i++) {
+        var mealNameIndex = userFavoriteNameArray[i]
+        var recipeIndex = userFavoriteRecipeArray[i]
+        var mealNameTitle = document.createElement('h2')
+        var recipeText = document.createElement('p')
+        mealNameTitle.classList.add('modal-title')
+        recipeText.classList.add('modal-recipe-text')
+        mealNameTitle.textContent = mealNameIndex
+        recipeText.textContent = recipeIndex
+        modalFavList.appendChild(mealNameTitle)
+        modalFavList.appendChild(recipeText)
+
+    }
+    
+}
+
 // renders horoscope text to element
 
 function renderHscope() {
@@ -196,8 +224,42 @@ function getRecipe(selectedRecipe) {
         .then(function(data) {
             mealDbObj = data
             userMeal = mealDbObj.meals[0].strMeal
-            userRecipeIns = mealDbObj.meals[0].strInstructions   
-        renderHscope()
+            userRecipeIns = mealDbObj.meals[0].strInstructions
+            // add usermeal and userrecipeins to local storage
+            favBtn.addEventListener('click', function() {
+                modalFavList.innerHTML = ""
+                var modalHead = document.createElement('h1')
+                modalHead.classList.add('modal-head')
+                modalHead.textContent = "Favorite Meals"
+                modalFavList.appendChild(modalHead)
+                var userFavoriteNameArray = []
+                userFavoriteNameArray = JSON.parse(localStorage.getItem('recipeName')) || []
+                userFavoriteNameArray.push(userMeal)
+                localStorage.setItem('recipeName', JSON.stringify(userFavoriteNameArray))
+                var userFavoriteRecipeArray = []
+                userFavoriteRecipeArray = JSON.parse(localStorage.getItem('recipeIns')) || []
+                userFavoriteRecipeArray.push(userRecipeIns)               
+                localStorage.setItem('recipeIns', JSON.stringify(userFavoriteRecipeArray))
+                for (var i = 0; i < userFavoriteNameArray.length; i++) {
+                    var mealNameIndex = userFavoriteNameArray[i]
+                    var recipeIndex = userFavoriteRecipeArray[i]
+                    var mealNameTitle = document.createElement('h2')
+                    var recipeText = document.createElement('p')
+                    mealNameTitle.classList.add('modal-title')
+                    recipeText.classList.add('modal-recipe-text')
+                    mealNameTitle.textContent = mealNameIndex
+                    recipeText.textContent = recipeIndex
+                    modalFavList.appendChild(mealNameTitle)
+                    modalFavList.appendChild(recipeText)
+
+                }
+                location.reload()
+                
+                
+            })
+            
+            renderHscope()
+
 
         })
 }
@@ -244,7 +306,7 @@ function showContent() {
     mainContentEl.setAttribute('class', 'is-flex')
     recipeContentEl.setAttribute('class', 'is-flex')
 }
-
+onLoad()
 // event listeners
 
 userBirthdayForm.addEventListener('submit', handleBirthday)
