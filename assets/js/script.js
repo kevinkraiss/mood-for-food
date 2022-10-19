@@ -8,6 +8,7 @@ var recipeInsEl = document.getElementById('recipeIns')
 var signCardEl = document.getElementById('signCard')
 var addFavBtn = document.getElementById('addFav')
 var modelContent = document.getElementById('modal-content')
+var modalFavList = document.getElementById('modalFavList')
 
 var userSign = ''
 var userMood
@@ -180,8 +181,9 @@ function getHscope() {
         userMood = hScopeObj.mood
         userHscope = hScopeObj.description
         handleCategory()       
-        })
-    }
+    })
+}
+
 
 // get recipe details by id
 function getRecipe(selectedRecipe) {
@@ -195,10 +197,13 @@ function getRecipe(selectedRecipe) {
             userMeal = mealDbObj.meals[0].strMeal
             userRecipeIns = mealDbObj.meals[0].strInstructions
             // add usermeal and userrecipeins to local storage
-            localStorage.setItem('recipeName', JSON.stringify(userMeal))
-            localStorage.setItem('recipeIns', JSON.stringify(userRecipeIns))
-            var userFavoriteName = JSON.parse(localStorage.getItem('recipeName')) || []
-            var userFavoriteRecipe = JSON.parse(localStorage.getItem('recipeIns')) || []
+            addFavBtn.addEventListener('click', function() {
+                localStorage.setItem('recipeName', JSON.stringify(userMeal))
+                localStorage.setItem('recipeIns', JSON.stringify(userRecipeIns))
+                var userFavoriteName = JSON.parse(localStorage.getItem('recipeName')) || []
+                var userFavoriteRecipe = JSON.parse(localStorage.getItem('recipeIns')) || []
+            })
+            
             renderHscope()
 
         })
