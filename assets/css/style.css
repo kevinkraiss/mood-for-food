@@ -219,6 +219,11 @@
     font-weight: bold;
 }
 
+#recipeContent {
+    margin-top: 20px;
+
+}
+
 h2 {
     text-align: center;
     font-size: 30px;
