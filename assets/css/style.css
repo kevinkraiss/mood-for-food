@@ -2,34 +2,39 @@
     from {
         -webkit-transform: translate3d(0px, 0px, 0px);
     }
-    to { 
+
+    to {
         -webkit-transform: translate3d(1000px, 0px, 0px);
     }
 }
-@-webkit-keyframes move-background {
-    from {
-         -webkit-transform: translate3d(0px, 0px, 0px);
-    }
-    to { 
-        -webkit-transform: translate3d(1000px, 0px, 0px);
-    }
-}
-  
-@-moz-keyframes move-background {    
-    from {
-        -webkit-transform: translate3d(0px, 0px, 0px);
-    }
-    to { 
-        -webkit-transform: translate3d(1000px, 0px, 0px);
-    }
-}
-  
+
 @-webkit-keyframes move-background {
     from {
         -webkit-transform: translate3d(0px, 0px, 0px);
     }
-    to { 
-       -webkit-transform: translate3d(1000px, 0px, 0px);
+
+    to {
+        -webkit-transform: translate3d(1000px, 0px, 0px);
+    }
+}
+
+@-moz-keyframes move-background {
+    from {
+        -webkit-transform: translate3d(0px, 0px, 0px);
+    }
+
+    to {
+        -webkit-transform: translate3d(1000px, 0px, 0px);
+    }
+}
+
+@-webkit-keyframes move-background {
+    from {
+        -webkit-transform: translate3d(0px, 0px, 0px);
+    }
+
+    to {
+        -webkit-transform: translate3d(1000px, 0px, 0px);
     }
 }
 
@@ -41,21 +46,21 @@
 }
 
 * {
-    font-family: diogenes, Helvetica, san-serif; 
+    font-family: diogenes, Helvetica, san-serif;
 }
 
 .birthday-input {
     font-family: diogenes, Helvetica, san-serif;
 }
 
-.background-container{
+.background-container {
     position: fixed;
     top: 0;
-    left:0;
+    left: 0;
     bottom: 0;
     right: 0;
 }
-  
+
 
 .stars {
     background: rgb(2, 0, 5) url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
@@ -68,9 +73,9 @@
     z-index: 0;
 }
 
-  
-.twinkling{
-    width:10000px;
+
+.twinkling {
+    width: 10000px;
     height: 100%;
     background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
     background-size: 1000px 1000px;
@@ -79,17 +84,17 @@
     top: 0;
     bottom: 0;
     z-index: 2;
-      
-    -moz-animation:move-background 70s linear infinite;
-    -ms-animation:move-background 70s linear infinite;
-    -o-animation:move-background 70s linear infinite;
-    -webkit-animation:move-background 70s linear infinite;
-    animation:move-background 70s linear infinite;
-      
+
+    -moz-animation: move-background 70s linear infinite;
+    -ms-animation: move-background 70s linear infinite;
+    -o-animation: move-background 70s linear infinite;
+    -webkit-animation: move-background 70s linear infinite;
+    animation: move-background 70s linear infinite;
+
 }
-  
-.clouds{
-    width:10000px;
+
+.clouds {
+    width: 10000px;
     height: 100%;
     background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
     background-size: 1000px 1000px;
@@ -98,16 +103,16 @@
     top: 0;
     bottom: 0;
     z-index: 3;
-  
-    -moz-animation:move-background 150s linear infinite;
-    -ms-animation:move-background 150s linear infinite;
-    -o-animation:move-background 150s linear infinite;
-    -webkit-animation:move-background 150s linear infinite;
-    animation:move-background 150s linear infinite;
+
+    -moz-animation: move-background 150s linear infinite;
+    -ms-animation: move-background 150s linear infinite;
+    -o-animation: move-background 150s linear infinite;
+    -webkit-animation: move-background 150s linear infinite;
+    animation: move-background 150s linear infinite;
 }
 
 
-.wheel{
+.wheel {
     position: relative;
 }
 
@@ -120,29 +125,30 @@
 
 
 .hero-head p {
-    
+
     font-size: 60px;
     margin-left: 25px;
     padding-top: 2rem;
-    
+
 }
 
 /* .hero-head , .title-food {
     
 } */
 
-.title-mood , .title-food {
+.title-mood,
+.title-food {
     padding-top: 1rem;
     width: 18.75rem;
     /* height: auto; */
     object-fit: contain;
-    
-    
+
+
 }
 
 #moon {
     height: 40vh;
-    width:40vh;
+    width: 40vh;
     position: absolute;
     z-index: 3;
     right: 20px;
@@ -203,8 +209,8 @@
 
 #recipeContent {
     justify-content: center;
-    
-} 
+
+}
 
 .foodResults {
     background-color: rgba(122, 119, 119, 0.5);
@@ -260,7 +266,7 @@ h2 {
     border-bottom: solid 2px white;
     font-family: diogenes, Helvetica, san-serif;
 }
- 
+
 h3 {
     text-align: center;
 }
@@ -282,7 +288,7 @@ h3 {
 
 #favBtn {
     margin-left: 10px;
-    font-family: diogenes, Helvetica, san-serif; 
+    font-family: diogenes, Helvetica, san-serif;
     background-color: rgba(248, 245, 245, 0.5);
     border-radius: 10px;
     height: 45px;
@@ -295,38 +301,41 @@ h3 {
 }
 
 .modal-head {
-    
+
     border-bottom: solid 2px;
     font-size: 40px;
 }
 
 .modal-title {
-    
+
     border-bottom: solid 2px;
     margin-top: 15px;
 }
 
 .modal-recipe-text {
-    
+
     margin-top: 15px;
 }
 
- 
+
 @media only screen and (max-width: 768px) {
     .ordered-mobile {
-       display: flex;
-       flex-flow: column;
+        display: flex;
+        flex-flow: column;
     }
+
     .ordered-mobile .zodiacSign {
-       order: 1;
-       margin-bottom: 20px;
+        order: 1;
+        margin-bottom: 20px;
     }
+
     .ordered-mobile .foodResults {
-       order: 2;
-       margin-bottom: 20px;
+        order: 2;
+        margin-bottom: 20px;
     }
+
     .ordered-mobile .horoscope {
-       order: 3;
+        order: 3;
     }
 }
 
@@ -336,8 +345,8 @@ h3 {
         flex-direction: column;
         align-items: center;
     }
+
     .hero-head {
         display: block;
     }
 }
- 

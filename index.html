@@ -1,134 +1,137 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mood for Food</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
-  <body>
 
-    <div class="background-container">
-        <img id="moon" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/moon2.png" alt="">
-        <div class="stars"></div>
-        <div class="twinkling"></div>
-        <div class="clouds"></div>
-    </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mood for Food</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+
+  <div class="background-container">
+    <img id="moon" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/moon2.png" alt="">
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="clouds"></div>
+  </div>
 
 
-    <section class="hero is-info is-medium ">
+  <section class="hero is-info is-medium ">
 
     <h2></h2>
     <section class="hero is-info is-medium">
 
-        <!-- Hero head: will stick at the top -->
-        <div class="hero-head">
-          <nav class="navbar">
-              <div class="container">
-                  <div class="navbar-brand">
-                  <img src="./assets/images/mood-cloud-hollow.png" class="title-mood">
-                  </img>
-                <p> for</p>
-                <img src="./assets/images/food-letters.png" class="title-food">
-                </img>  
-                </nav>
-              </div>
-         
-      
-        <!-- Hero content: will be in the middle -->
-        <div class="hero-body">
-          <div class="container has-text-centered">
-                <p class="birthday-input">
-                    Please Enter Birthdate
-                </p>
-                <form>
-                    <div>
-                        <label for="user-birthday"></label>
-                        <input class= "input is-focused"type="date" id="userBirthday">
-                        <button class="button is-info is-light is normal" 
-                        type="submit" >Submit</button>
-                    </div>
-                </form>
-            <div>
-                <figure id="darkHori" class="image is-256x256 is-inline-block">
-                  <img src="./assets/images/darkHori.png">
-                </figure>
-            </div>
+      <!-- Hero head: will stick at the top -->
+      <div class="hero-head">
+        <nav class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              <img src="./assets/images/mood-cloud-hollow.png" class="title-mood">
+              </img>
+              <p> for</p>
+              <img src="./assets/images/food-letters.png" class="title-food">
+              </img>
+        </nav>
+      </div>
 
-            <!-- <div class="container has-text-centered">
+
+      <!-- Hero content: will be in the middle -->
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <p class="birthday-input">
+            Please Enter Birthdate
+          </p>
+          <form>
+            <div>
+              <label for="user-birthday"></label>
+              <input class="input is-focused" type="date" id="userBirthday">
+              <button class="button is-info is-light is normal" type="submit">Submit</button>
+            </div>
+          </form>
+          <div>
+            <figure id="darkHori" class="image is-256x256 is-inline-block">
+              <img src="./assets/images/darkHori.png">
+            </figure>
+          </div>
+
+          <!-- <div class="container has-text-centered">
               <h2 class='title' id="userMoodHeader"></h2>
               <p id="hScopeContainer">
               </p>
             </div> -->
-            <div id="mainContent" class="is-hidden">
-              <div class="columns is-centered ordered-mobile">
-                <div class="column is-3 zodiacSign">
-                  <h2>Hello<span id="sign"></span>!</h2>
-                  <div class="card-image has-text-centered">
-                    <figure id="zodiacSymbol" class="is-inline-block">
-                      <h3>Your current mood is <span id="userMoodHeader"></span>.</h3>
-                      <img id ='signCard' src="" alt="">
-                    </figure>
-                  </div>    
+          <div id="mainContent" class="is-hidden">
+            <div class="columns is-centered ordered-mobile">
+              <div class="column is-3 zodiacSign">
+                <h2>Hello<span id="sign"></span>!</h2>
+                <div class="card-image has-text-centered">
+                  <figure id="zodiacSymbol" class="is-inline-block">
+                    <h3>Your current mood is <span id="userMoodHeader"></span>.</h3>
+                    <img id='signCard' src="" alt="">
+                  </figure>
                 </div>
-                <div class="column is-3 horoscope">
-                  <h2>Horoscope</h2>
-                  <p id="hScopeContainer"></p>
+              </div>
+              <div class="column is-3 horoscope">
+                <h2>Horoscope</h2>
+                <p id="hScopeContainer"></p>
+              </div>
+            </div>
+          </div>
+
+          <div id="recipeContent" class="is-hidden">
+            <div class="columns ordered-mobile is-centered">
+              <div class="column is-8  foodResults">
+                <div class="mealTitle">
+                  <h2 id="recipeName"></h2>
+                  <button id="favBtn">
+                    Add ❤️
+                  </button>
+                </div>
+                <div>
+                  <img id="mealThumb">
+                </div>
+                <p id="recipeIns"></p>
+                <div class="tabs is-centered">
+                  <ul>
+                    <button id="favorites" class="js-modal-trigger is-size-4" data-target="modal-js-example">
+                      Favorites ❤️
+                    </button></li>
+                  </ul>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div id="recipeContent" class="is-hidden">       
-              <div class="columns ordered-mobile is-centered">
-                <div class="column is-8  foodResults">
-                  <div class="mealTitle">
-                    <h2 id="recipeName"></h2>
-                    <button id="favBtn">
-                      Add ❤️
-                    </button>
-                  </div>
-                  <div>
-                    <img id="mealThumb">
-                  </div>
-                  <p id="recipeIns"></p>
-                  <div class="tabs is-centered">
-                    <ul>
-                      <button id="favorites" class="js-modal-trigger is-size-4" data-target="modal-js-example">
-                        Favorites ❤️
-                      </button></li>
-                    </ul>
-                  </div>
-                </div>
+
+          <div id="modal-js-example" class="modal">
+            <div class="modal-background"></div>
+
+            <div class="modal-content">
+              <div id="modalFavList" class="box">
+                <h1 class="modal-head">Favorite Meals</h1>
+                <!-- Your content -->
               </div>
             </div>
 
-
-            <div id="modal-js-example" class="modal">
-              <div class="modal-background"></div>
-            
-              <div class="modal-content">
-                <div id="modalFavList" class="box">
-                  <h1 class="modal-head" >Favorite Meals</h1>
-                  <!-- Your content -->
-                </div>
-              </div>
-            
-              <button class="modal-close is-large" aria-label="close"></button>
-            </div>
-            
-          
-        
-      
-      
-     
+            <button class="modal-close is-large" aria-label="close"></button>
+          </div>
 
 
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"crossorigin="anonymous"></script>
 
-    <script src="./assets/js/modal.js"></script>
-    <script src="./assets/js/script.js"></script>
-  </body>
+
+
+
+
+
+          <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+          <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+
+          <script src="./assets/js/modal.js"></script>
+          <script src="./assets/js/script.js"></script>
+</body>
+
 </html>
