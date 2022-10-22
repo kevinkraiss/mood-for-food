@@ -127,9 +127,6 @@
     
 }
 
-/* .hero-head , .title-food {
-    
-} */
 
 .title-mood , .title-food {
     padding-top: 1rem;
@@ -196,9 +193,6 @@
     font-weight: bold;
 }
 
-/* .ordered-mobile {
-
-} */
 
 .foodResults {
     background-color: rgba(122, 119, 119, 0.5);
@@ -284,6 +278,11 @@ h3 {
 }
 
 #favBtn:hover {
+    cursor: pointer;
+    background-color: rgba(194, 145, 55, 0.75);
+}
+
+#favorites:hover {
     cursor: pointer;
     background-color: rgba(194, 145, 55, 0.75);
 }
