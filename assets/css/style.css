@@ -132,9 +132,6 @@
 
 }
 
-/* .hero-head , .title-food {
-    
-} */
 
 .title-mood,
 .title-food {
@@ -203,9 +200,6 @@
     font-weight: bold;
 }
 
-/* .ordered-mobile {
-
-} */
 
 #recipeContent {
     justify-content: center;
@@ -296,6 +290,11 @@ h3 {
 }
 
 #favBtn:hover {
+    cursor: pointer;
+    background-color: rgba(194, 145, 55, 0.75);
+}
+
+#favorites:hover {
     cursor: pointer;
     background-color: rgba(194, 145, 55, 0.75);
 }
